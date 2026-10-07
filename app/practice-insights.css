@@ -1,0 +1,51 @@
+/* Patient-facing plan and recorded practice. Stimulus dialogs retain their own styles. */
+body {background:#f1f5f9;}
+#main .training-page-heading {margin-bottom:28px;}
+#main .training-session {position:relative;overflow:hidden;border-color:#17334b15;background:linear-gradient(145deg,#fff 45%,#eef6f8);box-shadow:0 18px 55px -38px #163f6266;}
+#main .training-session:before {content:"";position:absolute;width:280px;height:280px;right:-125px;top:-170px;border:1px solid #337fab14;border-radius:50%;box-shadow:0 0 0 36px #337fab04,0 0 0 72px #337fab03;pointer-events:none;}
+#main .training-session-copy,#main .training-track {position:relative;z-index:1;}
+#main .training-start {border-radius:12px;transition:background-color .18s,box-shadow .18s,transform .18s;}
+#main .training-start:hover {background:#24618a;box-shadow:0 8px 22px -12px #17334b70;transform:translateY(-1px);}
+#main .practice-path {margin-top:24px;background:#ffffff96;border:1px solid #17334b10;border-radius:12px;padding:20px 24px;}
+#main .practice-plan-detail {margin-top:18px;border:1px solid #17334b16;border-radius:12px;background:#fff;}
+#main .practice-plan-detail > summary {padding:18px 24px;cursor:pointer;font-size:13px;color:#284c65;}
+#main .practice-plan-detail .training-sequence {padding:0 24px 24px;margin:0;}
+#main .practice-plan-detail .training-section-heading {display:none;}
+#main .practice-plan-detail .training-card-list {gap:18px;}
+#main .practice-insight-grid {display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;}
+#main .practice-week,#main .practice-coverage {padding:26px;border:1px solid #17334b16;border-radius:16px;background:#fff;}
+#main .practice-insight-grid header {display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+#main .practice-insight-grid h2 {font-size:17px;margin:0;font-weight:550;}
+#main .practice-insight-grid header span {color:#647b8c;font-size:11px;}
+#main .practice-week ol {display:grid;grid-template-columns:repeat(7,minmax(0,1fr));list-style:none;padding:0;margin:25px 0;}
+#main .practice-week li {display:grid;place-items:center;gap:13px;}
+#main .practice-week time {font:11px "SFMono-Regular",Consolas,monospace;color:#647b8c;}
+#main .practice-week li > span {display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:13px;}
+#main .has-practice {color:#fff;background:#307269;}
+#main .no-practice {color:#8294a0;background:#eef3f6;}
+#main .practice-coverage ul {list-style:none;padding:0;margin:20px 0 12px;display:grid;gap:11px;}
+#main .practice-coverage li {display:grid;grid-template-columns:58px minmax(0,1fr) 30px;gap:12px;align-items:center;font-size:11px;color:#47647a;}
+#main .practice-coverage meter {width:100%;height:10px;accent-color:#398797;border:0;border-radius:20px;}
+#main .practice-coverage meter::-webkit-meter-bar {background:#edf3f5;border:0;border-radius:20px;}
+#main .practice-coverage meter::-webkit-meter-optimum-value {background:#398797;border-radius:20px;}
+#main .practice-coverage b {font:11px "SFMono-Regular",Consolas,monospace;text-align:right;}
+#main .practice-coverage p {font-size:11px;color:#6d8292;margin:8px 0 0;}
+#main .training-basis {margin-top:24px;padding-top:22px;}
+#main .practice-channel-summary {border:1px solid #17334b16;border-radius:12px;background:#fff;margin-top:24px;padding:0 22px 18px;}
+#main .practice-channel-summary summary {padding:20px 0 3px;cursor:pointer;font-size:13px;color:#284c65;}
+#main .practice-channel-summary summary span {margin-left:12px;font-size:11px;color:#647b8c;}
+#main .practice-channel-summary > p {font-size:12px;color:#647b8c;line-height:1.7;margin:14px 0;}
+#main .practice-channel-summary td small {display:block;margin-top:5px;font-size:10px;color:#708390;}
+@media(min-width:760px) and (prefers-reduced-motion:no-preference){
+ body:not(.ui-motion-paused):not(.ui-motion-off) #main .training-session {animation:practice-reveal .5s both;}
+ body:not(.ui-motion-paused):not(.ui-motion-off) #main .practice-insight-grid {animation:practice-reveal .55s .08s both;}
+}
+@keyframes practice-reveal {from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:760px){
+ #main .practice-insight-grid {grid-template-columns:1fr;gap:16px;}
+ #main .practice-week,#main .practice-coverage {padding:22px;}
+ #main .practice-plan-detail > summary {padding:17px 20px;}
+ #main .practice-plan-detail .training-sequence {padding:0 20px 20px;}
+ #main .practice-path {padding:18px 20px;}
+}
+@media(prefers-reduced-motion:reduce){#main .training-start {transition:none;}#main .training-start:hover {transform:none;}}
