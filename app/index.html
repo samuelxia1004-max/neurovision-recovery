@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file:; script-src 'self' file: 'wasm-unsafe-eval'; worker-src blob:; style-src 'self' 'unsafe-inline' file:; img-src 'self' data: blob: file:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>NeuroVision · 今日训练</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="runner.css">
+  <link rel="stylesheet" href="recovery.css">
+  <link rel="stylesheet" href="interface.css">
+  <link rel="stylesheet" href="experience.css">
+  <link rel="stylesheet" href="snapshot.css">
+  <link rel="stylesheet" href="medical.css">
+  <link rel="stylesheet" href="clinical-overview.css">
+  <link rel="stylesheet" href="perceptual-training.css">
+  <link rel="stylesheet" href="training-home.css">
+  <script defer src="psychometrics.js"></script>
+  <script defer src="device.js"></script>
+  <script defer src="training.js"></script>
+  <script defer src="daily.js"></script>
+  <script defer src="clinical.js"></script>
+  <script defer src="drafts.js"></script>
+  <script defer src="snapshot.js"></script>
+  <script defer src="longitudinal.js"></script>
+  <script defer src="report-import.js"></script>
+  <script defer src="medical.js"></script>
+  <script defer src="training-plan.js"></script>
+  <script defer src="perceptual-training.js"></script>
+  <script defer src="recovery.js"></script>
+  <script defer src="interface.js"></script>
+  <script defer src="experience.js"></script>
+  <script defer src="dismiss.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#recovery" aria-label="NeuroVision 今日训练">
+        <span class="brand-mark" aria-hidden="true"><i></i></span>
+        <span class="brand-name">NeuroVision</span>
+        <span class="brand-context">ICL 术后</span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#recovery" data-page="recovery" aria-current="page"><span>今日训练</span></a>
+        <a href="#profile" data-page="profile"><span>手术档案</span></a>
+        <a href="#records" data-page="records"><span>训练记录</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer">
+    <span>NeuroVision <span class="footer-divider">/</span> ICL 术后视觉练习</span>
+    <span>资料保存在当前浏览器</span>
+  </footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">请在浏览器中启用 JavaScript，以开始训练和管理档案。</p></noscript>
+</body>
+</html>

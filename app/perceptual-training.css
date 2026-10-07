@@ -1,0 +1,78 @@
+.nv-perceptual-training {
+  --npt-ink: #193546;
+  --npt-muted: #526976;
+  --npt-blue: #245b76;
+  --npt-line: #d5e0e6;
+  box-sizing: border-box;
+  width: min(720px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 26px 30px;
+  border: 1px solid #cbdbe4;
+  border-radius: 18px;
+  color: var(--npt-ink);
+  background: #f9fcfe;
+  box-shadow: 0 20px 80px #19354629;
+  overflow: auto;
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  overscroll-behavior: contain;
+}
+.nv-perceptual-training *, .nv-perceptual-training *::before, .nv-perceptual-training *::after { box-sizing: border-box; animation: none !important; transition: none !important; }
+.nv-perceptual-training::backdrop { background: #233a49a8; }
+.nv-perceptual-training .npt-head { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; margin-bottom: 18px; }
+.nv-perceptual-training .npt-eyebrow { display: block; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: var(--npt-muted); }
+.nv-perceptual-training h2 { margin: 3px 0 0; font-size: clamp(21px, 3vw, 26px); line-height: 1.4; font-weight: 620; }
+.nv-perceptual-training p { margin: 10px 0; }
+.nv-perceptual-training button { min-height: 44px; padding: 10px 18px; border: 1px solid var(--npt-blue); border-radius: 9px; background: var(--npt-blue); color: #fff; font: inherit; font-size: 15px; font-weight: 550; cursor: pointer; touch-action: manipulation; }
+.nv-perceptual-training button:disabled { opacity: .48; cursor: default; }
+.nv-perceptual-training button:focus-visible, .nv-perceptual-training input:focus-visible { outline: 3px solid #8bb9d0; outline-offset: 3px; }
+.nv-perceptual-training .npt-secondary { color: var(--npt-blue); background: #edf4f8; border-color: #b6cbd7; }
+.nv-perceptual-training .npt-link { color: var(--npt-muted); background: transparent; border-color: transparent; white-space: nowrap; }
+.nv-perceptual-training .npt-note { color: var(--npt-muted); font-size: 13px; line-height: 1.7; }
+.nv-perceptual-training .npt-summary-lead { font-size: 15px; }
+.nv-perceptual-training .npt-setup { display: grid; gap: 12px; padding-top: 12px; }
+.nv-perceptual-training .npt-ruler-space { min-height: 26px; display: flex; align-items: center; overflow: visible; }
+.nv-perceptual-training .npt-ruler { height: 12px; flex: none; border: solid var(--npt-ink); border-width: 0 2px; position: relative; }
+.nv-perceptual-training .npt-ruler::after { content: ""; position: absolute; inset: 5px 0 auto; height: 2px; background: var(--npt-ink); }
+.nv-perceptual-training input[type="range"] { width: 100%; margin: 0; accent-color: var(--npt-blue); }
+.nv-perceptual-training input[type="number"] { width: 80px; padding: 8px 10px; border: 1px solid #b9ccd7; border-radius: 6px; color: var(--npt-ink); background: #fff; font: inherit; }
+.nv-perceptual-training .npt-distance { display: flex; gap: 16px; justify-content: space-between; align-items: center; margin: 8px 0; }
+.nv-perceptual-training .npt-check { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+.nv-perceptual-training .npt-check input { flex: none; margin: 5px 0 0; width: 18px; height: 18px; accent-color: var(--npt-blue); }
+.nv-perceptual-training [role="alert"] { color: #8d402a; font-size: 13px; }
+.nv-perceptual-training [role="alert"]:empty { display: none; }
+.nv-perceptual-training .npt-metrics { display: flex; justify-content: space-between; gap: 12px; color: var(--npt-muted); font-size: 13px; }
+.nv-perceptual-training .npt-metrics b { color: var(--npt-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.nv-perceptual-training .npt-progress { display: block; height: 4px; width: 100%; border: 0; margin: 10px 0; background: #e1ebf0; color: #8ab0c5; }
+.nv-perceptual-training .npt-progress::-webkit-progress-bar { background: #e1ebf0; }
+.nv-perceptual-training .npt-progress::-webkit-progress-value { background: #8ab0c5; }
+.nv-perceptual-training .npt-progress::-moz-progress-bar { background: #8ab0c5; }
+.nv-perceptual-training .npt-detail { text-align: center; color: var(--npt-muted); font-size: 12px; min-height: 20px; margin: 6px 0; }
+.nv-perceptual-training .npt-stimulus { display: flex; align-items: center; justify-content: center; overflow: hidden; background: #808080; border-radius: 2px; }
+.nv-perceptual-training canvas { display: block; flex: none; max-width: none; height: auto; background: #808080; }
+.nv-perceptual-training .npt-status { min-height: 27px; text-align: center; margin: 10px 0; font-size: 15px; }
+.nv-perceptual-training .npt-feedback { color: #245b76; font-weight: 600; }
+.nv-perceptual-training .npt-answers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.nv-perceptual-training .npt-answers button { min-height: 50px; }
+.nv-perceptual-training .npt-controls { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 14px; }
+.nv-perceptual-training .npt-pause { padding: 24px 4px; text-align: center; }
+.nv-perceptual-training .npt-pause-mark { display: inline-grid; place-items: center; width: 58px; height: 58px; margin-bottom: 12px; border-radius: 50%; background: #e4eff5; color: #416a80; font-size: 23px; }
+.nv-perceptual-training .npt-pause button { margin: 10px 4px 0; }
+.nv-perceptual-training .npt-summary-numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 22px 0; margin-top: 20px; border-block: 1px solid var(--npt-line); }
+.nv-perceptual-training .npt-summary-numbers div { display: grid; text-align: center; }
+.nv-perceptual-training .npt-summary-numbers strong { font-size: 32px; font-weight: 550; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.nv-perceptual-training .npt-summary-numbers span { font-size: 12px; color: var(--npt-muted); }
+.nv-perceptual-training .npt-feelings { border: 0; padding: 0; margin: 22px 0; }
+.nv-perceptual-training .npt-feelings legend { font-size: 14px; margin-bottom: 10px; }
+.nv-perceptual-training .npt-feelings button { background: #fff; color: var(--npt-muted); border-color: var(--npt-line); font-size: 13px; margin: 0 6px 8px 0; padding: 8px 12px; }
+.nv-perceptual-training .npt-feelings button[aria-pressed="true"] { color: var(--npt-blue); background: #e8f2f7; border-color: #83aabe; }
+.nv-perceptual-training .npt-summary-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+@media (max-width: 520px) {
+  .nv-perceptual-training { padding: 18px; width: calc(100vw - 16px); max-height: calc(100dvh - 16px); border-radius: 12px; }
+  .nv-perceptual-training .npt-head { margin-bottom: 14px; }
+  .nv-perceptual-training .npt-controls { gap: 4px; }
+  .nv-perceptual-training .npt-controls button { padding-inline: 10px; font-size: 13px; }
+  .nv-perceptual-training .npt-summary-actions > button { flex: 1 1 auto; }
+}
+@media (prefers-reduced-motion: reduce) { .nv-perceptual-training * { scroll-behavior: auto; } }
