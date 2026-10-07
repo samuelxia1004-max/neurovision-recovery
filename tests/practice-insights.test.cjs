@@ -40,3 +40,12 @@ check(legacyStats.channels.every(c=>c.display==='旧版单次条件'),'legacy ge
 assert.equal(n,23);
 
 });
+
+test('Stopped-session headings include only tasks that actually began',()=>{
+ const UI=require('../app/app.js');
+ const record=JSON.parse(fs.readFileSync('qa/fixtures/synthetic-browser-session.json','utf8'));
+ assert.equal(record.blocks.filter(b=>b.status!=='not_started').length,1);
+ const html=UI.recordsPage([record],{participant_id:record.participant_id});
+ assert.match(html,/<h2>对比辨别<\/h2>/);
+ assert.doesNotMatch(html,/<h2>对比辨别 · 多尺度细节<\/h2>/);
+});
