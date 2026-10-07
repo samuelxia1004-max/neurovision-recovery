@@ -1,0 +1,15 @@
+SYNTHETIC TEST REPORT
+术后检查报告
+右眼 OD
+SPH -6.00 D   CYL -1.25 D   AXIS 180 deg
+IOP 15 mmHg
+拱高 520 um
+ACD 3.20 mm
+WTW 11.8 mm
+CCT 530 um
+Pupil size 5.2 mm
+ECD 2600 cells/mm2
+ICL size 12.6 mm
+ICL power -7.5 D
+手术日期: 2026-10-01
+术式: TICL
