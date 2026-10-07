@@ -24,7 +24,7 @@ function build(input={}){
  if(medical().reportIssues(context,reports).length)return hold('needs_data','同日检查值有冲突，请核对检查报告。');
  // An eye-specific postoperative report must follow that eye’s surgery.
  if(reports.some(r=>r.values.some(v=>v.eye==='both'?r.exam_date<latestSurgery:clinical[v.eye+'_surgery_date']&&r.exam_date<clinical[v.eye+'_surgery_date'])))return hold('needs_data','部分术后检查早于对应手术日期，请核对报告阶段与日期。');
- const history=(input.history||[]).filter(r=>r.participant_id===person&&Date.parse(r.completed_at)<=now.getTime()&&r.created_at.slice(0,10)>=latestSurgery).sort((a,b)=>a.completed_at.localeCompare(b.completed_at));
+ const history=(input.history||[]).filter(r=>r.participant_id===person&&Date.parse(r.completed_at)<=now.getTime()&&day(new Date(r.created_at))>=latestSurgery).sort((a,b)=>a.completed_at.localeCompare(b.completed_at));
  const adverse=[...history].reverse().find(r=>r.feedback==='stop'||r.stop_reason==='discomfort');
  if(adverse&&(!(Date.parse(care.created_at)>Date.parse(adverse.completed_at))||care.reviewed_on<day(new Date(adverse.completed_at))))return hold('needs_review','上次练习因不适停止，请复查后更新医生确认信息。');
  const latest=history.at(-1),observations=(input.observations||[]).filter(x=>x.participant_id===person&&x.local_date===today).at(-1);
