@@ -6,7 +6,7 @@ The application combines adaptive contrast tasks with condition-aware progressio
 
 ## Use
 
-Open `app/index.html` in a modern browser. Keep the folder structure intact for offline report recognition.
+[Open the live application](https://samuelxia1004-max.github.io/neurovision-recovery/), or open `app/index.html` in a modern browser. Keep the folder structure intact for offline report recognition.
 
 1. Add ICL/TICL surgery dates and the postoperative clinician review in **手术档案**.
 2. Review imported report fields before saving.
@@ -41,6 +41,10 @@ A public release contains application code, synthetic test fixtures, documentati
 
 ## Verification
 
-Automated checks cover condition summaries, calendar boundaries, staircase isolation, plan allocation, and storage integrity. The v2 runner also has isolated browser checks for starting, pausing, ending, saving, and restoring sessions. The updated interface requires browser verification before release.
+The regression suite contains 94 checks covering condition summaries, calendar boundaries, staircase isolation, plan allocation, and storage integrity.
+
+Online browser checks on 7 October 2026 used synthetic surgery data. Starting, pausing, resuming, ending, saving, and retaining records after reload worked. Clicking outside the report editor closed it. At a 390-pixel viewport, the home and profile pages had no document overflow. An interrupted-session heading was corrected to exclude tasks that never began.
+
+One online synthetic-image recognition attempt reached the OCR timeout. Clearing its temporary image worked. Image recognition still needs further browser validation. Text import and manual entry are available.
 
 Tests distinguish software integrity, controller simulation, and clinical outcomes. Fixed-observer simulations evaluate controller behavior.
