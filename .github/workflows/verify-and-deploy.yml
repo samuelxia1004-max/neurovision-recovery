@@ -1,0 +1,54 @@
+name: Verify and deploy
+
+on:
+  push:
+    branches: [main]
+  public:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neurovision-pages
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Run regression tests
+        run: node --test tests/training-plan.test.cjs tests/training-ui.test.cjs tests/training-adaptation-v2.test.cjs tests/practice-store.test.cjs tests/medical-store.test.cjs tests/clinical.test.cjs tests/practice-insights.test.cjs tests/report-import.test.cjs
+      - name: Run fixed-observer simulation
+        run: |
+          node analysis/controller-simulation.cjs > controller-simulation.json
+          node -e "if (require('./controller-simulation.json').status !== 'PASS') process.exit(1)"
+          cat controller-simulation.json
+
+  deploy:
+    needs: verify
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: app
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
